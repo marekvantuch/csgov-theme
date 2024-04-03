@@ -19,11 +19,18 @@
   {{ title_prefix }}
   {{ title_suffix }}
   {% if site_logo or site_name %}
+    {% if site_name %}
+      {% set link_hidden_text = 'Home, @site_name'|t({'@site_name': site_name}, {'context' : 'CSGOV: Header'}) %}
+      {% set image_alt_text = 'Logo, @site_name'|t({'@site_name': site_name}, {'context' : 'CSGOV: Header'}) %}
+    {% else %}
+      {% set link_hidden_text = 'Home'|t({'context' : 'CSGOV: Header'}) %}
+      {% set image_alt_text = 'Logo'|t({'context' : 'CSGOV: Header'}) %}
+    {% endif %}
     <a href="{{ path('<front>') }}" rel="home" class="csgov-brand__block-link">
-      <span class="visually-hidden">{{ 'Home, @site_name'|t({'@site_name': site_name}, {'context' : 'CSGOV: Header'}) }}</span>
+      <span class="visually-hidden">{{ link_hidden_text }}</span>
       {% if site_logo %}
         <div class="csgov-brand__logo">
-          <img src="{{ site_logo }}" alt="{{ 'Logo, @site_name'|t({'@site_name': site_name}, {'context' : 'CSGOV: Header'}) }}" fetchpriority="high"/>
+          <img src="{{ site_logo }}" alt="{{ image_alt_text }}" fetchpriority="high"/>
         </div>
       {% endif %}
       {% if site_name %}
