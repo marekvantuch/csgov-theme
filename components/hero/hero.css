@@ -42,7 +42,7 @@
   padding-block: var(--csgov-spacing-l);
   grid-column: 1 / -1;
   z-index: 10;
-  border-radius: var(--csgov-border-radius) var(--csgov-border-radius) 0 0;
+  border-radius: var(--csgov-border-radius);
   max-width: calc(var(--csgov-container) + 2 * var(--csgov-spacing-3xl));
 }
 
