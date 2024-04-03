@@ -16,6 +16,10 @@
   }
 }
 
+.csgov-directory .node__content-components {
+  grid-column: 1/-1;
+}
+
 .csgov-directory .node__content-components .gov-container {
   padding-inline: 0;
 }
